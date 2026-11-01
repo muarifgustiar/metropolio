@@ -1,0 +1,13 @@
+[package]
+name = "metropolis_render"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Metropolis render: isometric camera, chunk culling, sprite batching, picking"
+
+[dependencies]
+metropolis_core.workspace = true
+metropolis_world.workspace = true
+bevy = { workspace = true, features = ["std", "2d", "png", "webgl2"] }
+tracing.workspace = true

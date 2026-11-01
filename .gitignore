@@ -1,0 +1,24 @@
+# Rust build artifacts
+/target
+**/*.rs.bk
+*.rlib
+*.prof*
+
+# Web build output
+/dist
+
+# Save games
+*.mpsave
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.idea/
+.vscode/
+
+# Local env
+.env
+.env.*
+*.log

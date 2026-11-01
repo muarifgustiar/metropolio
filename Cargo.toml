@@ -1,0 +1,77 @@
+[workspace]
+resolver = "3"
+members = [
+    "apps/game",
+    "crates/metropolis_core",
+    "crates/metropolis_world",
+    "crates/metropolis_render",
+    "crates/metropolis_transport",
+    "crates/metropolis_economy",
+    "crates/metropolis_logistics",
+    "crates/metropolis_population",
+    "crates/metropolis_save",
+    "tools/asset_pipeline",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.99.1"
+license = "MIT OR Apache-2.0"
+
+[workspace.dependencies]
+# --- Bevy facade (rendering / application crates only) ---
+bevy = { version = "0.20.1", default-features = false }
+
+# --- Headless Bevy subcrates (simulation crates only) ---
+bevy_app = { version = "0.20.1", default-features = false, features = ["std"] }
+bevy_ecs = { version = "0.20.1", default-features = false, features = ["std", "bevy_reflect"] }
+bevy_math = { version = "0.20.1", default-features = false, features = ["std"] }
+bevy_time = { version = "0.20.1", default-features = false, features = ["std"] }
+bevy_transform = { version = "0.20.1", default-features = false, features = ["std"] }
+bevy_platform = { version = "0.20.1", default-features = false, features = ["std"] }
+bevy_tasks = { version = "0.20.1", default-features = false }
+bevy_reflect = { version = "0.20.1", default-features = false, features = ["std"] }
+bevy_state = { version = "0.20.1", default-features = false }
+bevy_diagnostic = { version = "0.20.1", default-features = false }
+
+# --- Serialization / persistence ---
+serde = { version = "1.0.229", features = ["derive"] }
+rmp-serde = "1.3.1"
+zstd = "0.14.3"
+
+# --- Determinism ---
+rand = "0.10.3"
+rand_chacha = "0.10.0"
+
+# --- Diagnostics / errors ---
+thiserror = "2.0.21"
+tracing = "0.1.44"
+
+# --- Native-only parallelism (non-default feature) ---
+rayon = "1.12.0"
+
+# --- Browser entry point ---
+wasm-bindgen = "0.2.130"
+console_error_panic_hook = "0.1.7"
+
+# --- Internal crates ---
+metropolis_core = { path = "crates/metropolis_core" }
+metropolis_world = { path = "crates/metropolis_world" }
+metropolis_render = { path = "crates/metropolis_render" }
+metropolis_transport = { path = "crates/metropolis_transport" }
+metropolis_economy = { path = "crates/metropolis_economy" }
+metropolis_logistics = { path = "crates/metropolis_logistics" }
+metropolis_population = { path = "crates/metropolis_population" }
+metropolis_save = { path = "crates/metropolis_save" }
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3

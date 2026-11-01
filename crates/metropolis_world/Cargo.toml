@@ -1,0 +1,32 @@
+[package]
+name = "metropolis_world"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Metropolis world: chunked map, terrain, grid math, placement"
+
+[dependencies]
+metropolis_core.workspace = true
+bevy_app.workspace = true
+bevy_ecs.workspace = true
+bevy_math.workspace = true
+bevy_time.workspace = true
+bevy_transform.workspace = true
+bevy_platform.workspace = true
+bevy_tasks.workspace = true
+bevy_reflect.workspace = true
+bevy_state.workspace = true
+bevy_diagnostic.workspace = true
+serde.workspace = true
+rand.workspace = true
+rand_chacha.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+
+[features]
+parallel = ["dep:rayon"]
+
+[dependencies.rayon]
+workspace = true
+optional = true

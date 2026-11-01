@@ -1,0 +1,30 @@
+[package]
+name = "metropolis_save"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Metropolis save: MessagePack + Zstd persistence with schema versioning"
+
+[dependencies]
+metropolis_core.workspace = true
+metropolis_world.workspace = true
+metropolis_transport.workspace = true
+metropolis_economy.workspace = true
+metropolis_logistics.workspace = true
+metropolis_population.workspace = true
+bevy_app.workspace = true
+bevy_ecs.workspace = true
+bevy_math.workspace = true
+bevy_time.workspace = true
+bevy_transform.workspace = true
+bevy_platform.workspace = true
+bevy_tasks.workspace = true
+bevy_reflect.workspace = true
+bevy_state.workspace = true
+bevy_diagnostic.workspace = true
+serde.workspace = true
+rmp-serde.workspace = true
+zstd.workspace = true
+thiserror.workspace = true
+tracing.workspace = true

@@ -1,0 +1,27 @@
+[package]
+name = "metropolis_game"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Metropolis game application: Bevy app wiring and gameplay orchestration"
+
+[[bin]]
+name = "metropolis"
+path = "src/main.rs"
+
+[dependencies]
+metropolis_core.workspace = true
+metropolis_world.workspace = true
+metropolis_render.workspace = true
+metropolis_transport.workspace = true
+metropolis_economy.workspace = true
+metropolis_logistics.workspace = true
+metropolis_population.workspace = true
+metropolis_save.workspace = true
+bevy = { workspace = true, features = ["std", "2d", "png", "webgl2"] }
+tracing.workspace = true
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen.workspace = true
+console_error_panic_hook.workspace = true
